@@ -14,7 +14,7 @@ public class Main {
             System.out.println("3. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -80,7 +80,7 @@ public class Main {
             System.out.println("3. Logout");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -92,7 +92,7 @@ public class Main {
                 case 2:
                     System.out.print("Enter product ID to search: ");
                     int productId = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine();
                     Product product = productService.getProductById(productId);
                     if (product != null) {
                         System.out.println(product.getName() + " - $" + product.getPrice());
@@ -120,7 +120,7 @@ public class Main {
             System.out.println("5. Logout");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -130,17 +130,17 @@ public class Main {
                     double price = scanner.nextDouble();
                     System.out.print("Enter product quantity: ");
                     int quantity = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine();
                     System.out.print("Enter seller ID: ");
                     int sellerId = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine();
                     productService.addProduct(name, price, quantity, sellerId);
                     System.out.println("Product added successfully!");
                     break;
                 case 2:
                     System.out.print("Enter product ID to update: ");
                     int productId = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine();
                     Product product = productService.getProductById(productId);
                     if (product != null) {
                         System.out.print("Enter new product name: ");
@@ -149,7 +149,7 @@ public class Main {
                         product.setPrice(scanner.nextDouble());
                         System.out.print("Enter new product quantity: ");
                         product.setQuantity(scanner.nextInt());
-                        scanner.nextLine(); // Consume newline
+                        scanner.nextLine();
                         productService.updateProduct(product);
                         System.out.println("Product updated successfully!");
                     } else {
@@ -159,15 +159,15 @@ public class Main {
                 case 3:
                     System.out.print("Enter product ID to delete: ");
                     int deleteProductId = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine();
                     productService.deleteProduct(deleteProductId);
                     System.out.println("Product deleted successfully!");
                     break;
                 case 4:
                     System.out.print("Enter seller ID to view products: ");
                     int viewSellerId = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
-                    List<Product> sellerProducts = productService.getAllProducts(); // Filter by sellerId
+                    scanner.nextLine();
+                    List<Product> sellerProducts = productService.getAllProducts();
                     for (Product p : sellerProducts) {
                         if (p.getSellerId() == viewSellerId) {
                             System.out.println(p.getName() + " - $" + p.getPrice());
@@ -192,7 +192,7 @@ public class Main {
             System.out.println("3. Logout");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -204,7 +204,7 @@ public class Main {
                 case 2:
                     System.out.print("Enter user ID to delete: ");
                     int userId = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine();
                     userService.deleteUser(userId);
                     System.out.println("User deleted successfully!");
                     break;

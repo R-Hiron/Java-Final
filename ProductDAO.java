@@ -3,18 +3,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAO {
+    
     private final String URL = System.getenv("DB_URL");
     private final String USER = System.getenv("DB_USER");
     private final String PASSWORD = System.getenv("DB_PASSWORD");
 
     public Connection getConnection() throws SQLException {
-        System.out.println("URL: " + URL);
-        System.out.println("USER: " + USER);
-        System.out.println("PASSWORD: " + PASSWORD);
+        // Debugging to ensure envs were set correct
+        // System.out.println("URL: " + URL);
+        // System.out.println("USER: " + USER);
+        // System.out.println("PASSWORD: " + PASSWORD);
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    // Method to add a product to the database
     public void addProduct(Product product) {
         String sql = "INSERT INTO Products (name, price, quantity, seller_id) VALUES (?, ?, ?, ?)";
         try (Connection conn = getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -28,7 +29,6 @@ public class ProductDAO {
         }
     }
 
-    // Method to get a product by ID
     public Product getProductById(int id) {
         String sql = "SELECT * FROM Products WHERE id = ?";
         Product product = null;
@@ -49,7 +49,6 @@ public class ProductDAO {
         return product;
     }
 
-    // Method to get all products
     public List<Product> getAllProducts() {
         String sql = "SELECT * FROM Products";
         List<Product> products = new ArrayList<>();
@@ -69,7 +68,6 @@ public class ProductDAO {
         return products;
     }
 
-    // Method to update a product
     public void updateProduct(Product product) {
         String sql = "UPDATE Products SET name = ?, price = ?, quantity = ?, seller_id = ? WHERE id = ?";
         try (Connection conn = getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -84,7 +82,6 @@ public class ProductDAO {
         }
     }
 
-    // Method to delete a product
     public void deleteProduct(int id) {
         String sql = "DELETE FROM Products WHERE id = ?";
         try (Connection conn = getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {

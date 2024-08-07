@@ -5,7 +5,6 @@ public class Product {
     private int quantity;
     private int sellerId;
 
-    // Constructors
     public Product() {}
 
     public Product(String name, double price, int quantity, int sellerId) {
@@ -15,7 +14,6 @@ public class Product {
         this.sellerId = sellerId;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }

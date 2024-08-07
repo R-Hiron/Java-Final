@@ -3,14 +3,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO {
+    
     private final String URL = System.getenv("DB_URL");
     private final String USER = System.getenv("DB_USER");
     private final String PASSWORD = System.getenv("DB_PASSWORD");
 
     public Connection getConnection() throws SQLException {
-        System.out.println("URL: " + URL);
-        System.out.println("USER: " + USER);
-        System.out.println("PASSWORD: " + PASSWORD);
+        // Debugging to ensure envs were set correct
+        // System.out.println("URL: " + URL);
+        // System.out.println("USER: " + USER);
+        // System.out.println("PASSWORD: " + PASSWORD);
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
