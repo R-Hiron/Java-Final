@@ -1,5 +1,7 @@
 Ignore the errors or such regarding Bcrypt especially in the UserService.java these error will fix in the compiled .class versons of the files
 
+If there is no folder called Class-Run in the root directory create one but dont manually add any files
+
 Set up your SQL database with some testing data 
 create the tables via the create_table.sql using the query tool
 and you can insert the testing data with the Testing_data.sql 
@@ -33,4 +35,4 @@ javac -d Class-Run -cp "libs/jbcrypt-0.4.jar;libs/postgresql-42.7.3.jar" *.java
 
 java -cp "Class-Run;libs/jbcrypt-0.4.jar;libs/postgresql-42.7.3.jar" Main
 
-
+if you make any changes and want to test again you need to delete all the .class files in the Class-Run folder and save the .java files you changed then rerun the above two commands
